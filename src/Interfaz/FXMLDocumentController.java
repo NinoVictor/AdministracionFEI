@@ -5,7 +5,7 @@
  * como los metodos para los eventos de los botones y bajas, altas de
  * alumnos
  * Modificación: 2019/02/27
- *
+ * FXML Controller Class
  * @author Victor Niño
  * @version 1.0
  * @since 2019/02/25
@@ -70,7 +70,6 @@ public class FXMLDocumentController implements Initializable{
     /**
      * Método que muestra y mensaje de despedida y cierra el programa.
      *
-     * @param event
      */
     @FXML
     private void SalirPrograma() {

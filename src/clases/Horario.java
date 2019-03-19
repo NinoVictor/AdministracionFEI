@@ -1,14 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Institución: Universidad Veracruzana
+ * Programa educativo: Ingenieria de Software
+ * Descripción: Definicion de la clase Horario
+ * Modificación: 2019/03/19
+ * @author Victor Niño
+ * @version 1.0
+ * @since 2019/03/16
  */
 package clases;
 
-/**
- *
- * @author Vik-t
- */
+
 public class Horario {
     private int idHorario;
     private String academico;
@@ -26,6 +27,20 @@ public class Horario {
         
     }
 
+    /**
+     * 
+     * @param idHorario identificador del horario
+     * @param academico nombre del academico que impartira la clase 
+     * @param salon 
+     * @param cupo
+     * @param nrc identificador de la materia 
+     * @param lunes
+     * @param martes
+     * @param miercoles
+     * @param jueves
+     * @param viernes
+     * @param sabado 
+     */
     public Horario(int idHorario, String academico, String salon, int cupo, int nrc, String lunes, String martes, String miercoles, String jueves, String viernes, String sabado) {
         this.idHorario = idHorario;
         this.academico = academico;

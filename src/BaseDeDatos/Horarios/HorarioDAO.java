@@ -1,7 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Institución: Universidad Veracruzana
+ * Programa educativo: Ingenieria de Software
+ * Descripción: Implementación de la Interface IHorarioDAO.
+ * Modificación: 2019/03/19
+ *
+ * @author Victor Niño
+ * @version 1.0
+ * @since 2019/03/16
  */
 package BaseDeDatos.Horarios;
 
@@ -18,8 +23,14 @@ import java.util.List;
  *
  * @author Vik-t
  */
-public class HorarioDAO implements IHorarioDAO{
+public class HorarioDAO implements IHorarioDAO {
 
+    /**
+     * Implementación de la clase IHorarioDAO, método que obtiene una lista 
+     * de los horarios registrados.
+     * @return lista de objetos de horario
+     * @throws SQLException 
+     */
     @Override
     public List<Horario> getHorario() throws SQLException {
         List<Horario> lista = new ArrayList<>();
@@ -61,17 +72,28 @@ public class HorarioDAO implements IHorarioDAO{
         return lista;
     }
 
+    /**
+     * Implementación de la clase IHorarioDAO, método que registra un nuevo 
+     * horario
+     * @param horario objeto de tipo horario
+     * @return regresa el resultado de la operacón de la sentencia MySQL si es
+     * que fue exitosa, si no regresa -1
+     * @throws SQLException 
+     */
     @Override
     public int NuevoHorario(Horario horario) throws SQLException {
-       Statement s;
+        Statement s;
         String sentencia;
         Connection conn = null;
         ResultSet rs = null;
-        sentencia = "INSERT INTO horarios(academico,salon,cupo,nrc,lunes,martes,miercoles,jueves,viernes,sabado)"
-                + "VALUES ('" + horario.getAcademico() + "','" + horario.getSalon() + "','"
-                + horario.getCupo() + "','" + horario.getNrc() + "','" + horario.getLunes() + "','" 
-                + horario.getMartes()+ "','" + horario.getMiercoles() + "','" + horario.getJueves()
-                + "','" + horario.getViernes() + "','" + horario.getSabado() + "');";
+        sentencia = "INSERT INTO horarios(academico,salon,cupo,nrc,lunes,"
+                + "martes,miercoles,jueves,viernes,sabado)"
+                + "VALUES ('" + horario.getAcademico() + "','" 
+                + horario.getSalon() + "','" + horario.getCupo() + "','" 
+                + horario.getNrc() + "','" + horario.getLunes() + "','"
+                + horario.getMartes() + "','" + horario.getMiercoles() 
+                + "','" + horario.getJueves() + "','" + horario.getViernes() 
+                + "','" + horario.getSabado() + "');";
         System.out.println(sentencia);
         try {
             conn = new Conectar().getConnection();
@@ -79,20 +101,30 @@ public class HorarioDAO implements IHorarioDAO{
             return s.executeUpdate(sentencia);
 
         } catch (SQLException e) {
-            System.err.println("Error: " + e.getMessage() + "\n" + e.getErrorCode());
+            System.err.println("Error: " + e.getMessage() + "\n" 
+                    + e.getErrorCode());
         } finally {
             conn.close();
         }
         return -1;
     }
 
+     /**
+     * Implementación de la clase IHorarioDAO, método que elimina un horario 
+     * registrado
+     * @param horario objeto de tipo horario
+     * @return regresa el resultado de la operacón de la sentencia MySQL si es
+     * que fue exitosa, si no regresa -1
+     * @throws SQLException 
+     */
     @Override
     public int EliminarHorario(Horario horario) throws SQLException {
         Statement s;
         String sentencia;
         Connection conn = null;
         ResultSet rs = null;
-        sentencia = "DELETE FROM horarios WHERE idhorario ='" + horario.getIdHorario() + "';";
+        sentencia = "DELETE FROM horarios WHERE idhorario ='" 
+                + horario.getIdHorario() + "';";
         System.out.println(sentencia);
         try {
             conn = new Conectar().getConnection();
@@ -108,6 +140,14 @@ public class HorarioDAO implements IHorarioDAO{
         return -1;
     }
 
+    /**
+     * Implementación de la clase IHorarioDAO, método que modifica la 
+     * informacion de un horario registrado
+     * @param horario objeto de tipo horario
+     * @return regresa el resultado de la operacón de la sentencia MySQL si es
+     * que fue exitosa, si no regresa -1
+     * @throws SQLException 
+     */
     @Override
     public int EditarHorario(Horario horario) throws SQLException {
         Statement s;
@@ -117,7 +157,7 @@ public class HorarioDAO implements IHorarioDAO{
 
         sentencia = "UPDATE horarios SET academico = '" + horario.getAcademico()
                 + "', salon = '" + horario.getSalon()
-                +"', cupo = '" + horario.getCupo()
+                + "', cupo = '" + horario.getCupo()
                 + "', lunes = '" + horario.getLunes()
                 + "', martes = '" + horario.getMartes()
                 + "', miercoles = '" + horario.getMiercoles()
@@ -134,14 +174,12 @@ public class HorarioDAO implements IHorarioDAO{
             return s.executeUpdate(sentencia);
 
         } catch (SQLException e) {
-            System.err.println("Error: " + e.getMessage() + "\n" + e.getErrorCode());
+            System.err.println("Error: " + e.getMessage() + "\n" 
+                    + e.getErrorCode());
         } finally {
             conn.close();
         }
         return -1;
     }
-    
-    
-    
-    
+
 }

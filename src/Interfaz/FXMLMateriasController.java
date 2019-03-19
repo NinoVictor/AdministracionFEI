@@ -1,7 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Institución: Universidad Veracruzana
+ * Programa educativo: Ingenieria de Software
+ * Descripción: Controller que permite el manejo de la interface gráfica de
+ * la ventana Materias.
+ * Modificación: 2019/03/19
+ * FXML Controller Class
+ * @author Victor Niño
+ * @version 1.0
+ * @since 2019/03/16
  */
 package Interfaz;
 
@@ -27,11 +33,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javax.swing.JOptionPane;
 
-/**
- * FXML Controller class
- *
- * @author Vik-t
- */
+
 public class FXMLMateriasController implements Initializable {
 
     private List<Materia> mate = new ArrayList<>();
@@ -60,13 +62,22 @@ public class FXMLMateriasController implements Initializable {
     @FXML private Menu menuAlumnos;
     @FXML private Menu menuMaterias;
     
-    
+    /**
+     * Método que muestra y mensaje de despedida y cierra el programa.
+     *
+     * @param event
+     */
     @FXML
     private void SalirPrograma(ActionEvent event) {
         JOptionPane.showMessageDialog(null, "Hasta la vista");
         System.exit(0);
     }
     
+    /**
+     * Método que llena la tableView de los objetos detipo materia.
+     *
+     * @throws SQLException
+     */
     @FXML
     private void LlenarTabla() throws SQLException {
         colNrc.setCellValueFactory
@@ -88,6 +99,10 @@ public class FXMLMateriasController implements Initializable {
         tblMaterias.setItems(materiaOb);
     }
     
+    /**
+     * Método que inicia la interfaz bloqueando los textField, limpiandolos y
+     * ocultando el boton de guardar
+     */
     @FXML
     private void IniciarInterfaz(){
         btnGuardar.setVisible(false);
@@ -103,6 +118,11 @@ public class FXMLMateriasController implements Initializable {
         lblHorasPracticas.setEditable(false);
         lblHorasTeoricas.setEditable(false);
     }
+    
+    /**
+     * Método que permite editar los textField para que se pueda ingresar 
+     * infromación.
+     */
     @FXML
     private void ActivarFormulario(){
         lblNrc.setEditable(true);
@@ -112,6 +132,12 @@ public class FXMLMateriasController implements Initializable {
         lblHorasTeoricas.setEditable(true);
     }
     
+    /**
+     * Método que permite guardar la informacion de los textField en un
+     * objeto de materia para después ser guardados por un metodo de la 
+     * clase MateriasDAO.
+     * @throws SQLException 
+     */
     @FXML
     private void GuardarMateria() throws SQLException {
         if(ValidarCampos()){
@@ -128,7 +154,11 @@ public class FXMLMateriasController implements Initializable {
         }
     }
     
-    
+    /**
+     * Valida que todos los campos hayn sido llenados
+     * @return true si todos los campos estan llenos, false si alguno 
+     * falta por llenarse.
+     */
     public boolean ValidarCampos() {
         if (lblNrc.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Llenar NRC");
@@ -153,7 +183,10 @@ public class FXMLMateriasController implements Initializable {
         return true;
     }
     
-    
+    /**
+     * Obtiene el elemnto seleccionado en la TableView
+     * @return regresa un objeto de tipo Materia 
+     */
     @FXML
     private Materia AlumnoSeleccionado() {
         if (tblMaterias != null) {
@@ -164,12 +197,19 @@ public class FXMLMateriasController implements Initializable {
         }
     }
     
+    /**
+     * Inicia la interfaz y activa el formulario.
+     */
     @FXML
     private void AgregarMateria(){
         IniciarInterfaz();
         ActivarFormulario();
         btnGuardar.setVisible(true);
     }
+    /**
+     * Elimina el elemento seleccionado de la tableView
+     * @throws SQLException 
+     */
     @FXML
     private void Eliminar() throws SQLException {
         Materia mat = AlumnoSeleccionado();
@@ -188,6 +228,10 @@ public class FXMLMateriasController implements Initializable {
         }
     }
     
+    /**
+     * Muestra la infromacion en el formulario de un elemento seleccionado en
+     * la tableView
+     */
     @FXML
     private void Editar() {
         Materia materia = AlumnoSeleccionado();
@@ -206,6 +250,11 @@ public class FXMLMateriasController implements Initializable {
         }
 
     }
+    
+    /**
+     *Modifica un elemento que se selecciono de la tableView 
+     * @throws SQLException 
+     */
     @FXML
     private void GuardarEditar() throws SQLException {
         if (ValidarCampos()) {
@@ -225,18 +274,31 @@ public class FXMLMateriasController implements Initializable {
     }
     
     private RegistroAlumnos20 principal;
+    /**
+     * obtiene el stage principal para poder navegar entre ventanas
+     * @param principal stage principal
+     */
     public void setProgramaPrincipal(RegistroAlumnos20 principal){
         this.principal = principal;
     }
     
+    /**
+     * Permite navegar a la ventana Alumnos.
+     */
     @FXML
     private void VentanaAlumnos(){
         principal.VentanaPrincipal();
     }
+    /**
+     * Permite navegar a la ventana Materias.
+     */
     @FXML
     private void VentanaMaterias(){
         principal.VentanaMaterias();
     }
+    /**
+     * Permite navegar a la ventana Horarios.
+     */
     @FXML
     private void VentanaHorarios(){
         principal.VentanaHorarios();
@@ -244,6 +306,11 @@ public class FXMLMateriasController implements Initializable {
     
     
 
+    /**
+     * Inicializa la interfaz de javaFX
+     * @param location
+     * @param resources 
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         IniciarInterfaz();

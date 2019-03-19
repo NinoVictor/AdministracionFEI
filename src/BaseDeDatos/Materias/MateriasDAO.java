@@ -1,7 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Institución: Universidad Veracruzana
+ * Programa educativo: Ingenieria de Software
+ * Descripción: Implementacion de la interface IMateriasDAO.
+ * Modificación: 2019/03/19
+ *
+ * @author Victor Niño
+ * @version 1.0
+ * @since 2019/03/16
  */
 package BaseDeDatos.Materias;
 
@@ -16,12 +21,14 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Vik-t
- */
+
 public class MateriasDAO implements IMateriasDAO{
-    
+    /**
+     * Implemantación de la interface IMateriasDAO. Método que obtiene una 
+     * lista de las materias registradas.
+     * @return lista de objetos de materias registradas
+     * @throws SQLException 
+     */
     @Override
     public List<Materia> getMateria() throws SQLException{
         List<Materia> lista = new ArrayList<Materia>();
@@ -57,6 +64,14 @@ public class MateriasDAO implements IMateriasDAO{
         return lista;
     }
     
+    /**
+     * Implemantación de la interface IMateriasDAO. Método que permite 
+     * registrar una materia nueva.
+     * @param materia objeto de tipo materia.
+     * @return regresa el resultado de la operacón de la sentencia MySQL si es
+     * que fue exitosa, si no regresa -1.
+     * @throws SQLException 
+     */
     @Override
     public int NuevaMateria(Materia materia) throws SQLException{
         Statement s;
@@ -81,7 +96,15 @@ public class MateriasDAO implements IMateriasDAO{
         }
         return -1;
     }
-    
+
+    /**
+     * Implemantación de la interface IMateriasDAO. Método que permite 
+     * eliminar una materia registrada
+     * @param materia objeto de tipo materia.
+     * @return regresa el resultado de la operacón de la sentencia MySQL si es
+     * que fue exitosa, si no regresa -1.
+     * @throws SQLException 
+     */
     @Override
     public int EliminarMateria(Materia materia) throws SQLException{
         Statement s;
@@ -106,6 +129,14 @@ public class MateriasDAO implements IMateriasDAO{
         return -1;
     }
     
+    /**
+     * Implemantación de la interface IMateriasDAO. Método que modifica 
+     * una materia registrada.
+     * @param materia objeto de tipo materia.
+     * @return regresa el resultado de la operacón de la sentencia MySQL si es
+     * que fue exitosa, si no regresa -1.
+     * @throws SQLException 
+     */
     @Override
     public int EditarMateria(Materia materia) throws SQLException{
         Statement s;
