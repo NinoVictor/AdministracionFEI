@@ -46,64 +46,46 @@ public class FXMLHorariosController implements Initializable {
     ObservableList<Materia> materiast;
     ObservableList<String> horasInicio;
     ObservableList<String> horasFin;
-    @FXML
-    private Button btnGuardar;
-    @FXML
-    private ComboBox<Materia> cbMateria;
-    @FXML
-    private TextField lblAcademico;
-    @FXML
-    private TextField lblCupo;
-    @FXML
-    private TextField lblSalon;
-    @FXML
-    private Button btnGuardarEdicion;
-    @FXML
-    private ComboBox<String> cbjuevesfin;
-    @FXML
-    private ComboBox<String> cbjuevesinicio;
-    @FXML
-    private ComboBox<String> cblunesfin;
-    @FXML
-    private ComboBox<String> cblunesinicio;
-    @FXML
-    private ComboBox<String> cbmartesfin;
-    @FXML
-    private ComboBox<String> cbmartesinicio;
-    @FXML
-    private ComboBox<String> cbmiercolesfin;
-    @FXML
-    private ComboBox<String> cbmiercolesinicio;
-    @FXML
-    private ComboBox<String> cbsabadofin;
-    @FXML
-    private ComboBox<String> cbsabadoinicio;
-    @FXML
-    private ComboBox<String> cbviernesfin;
-    @FXML
-    private ComboBox<String> cbviernesinicio;
-    @FXML
-    private TableColumn<Horario, String> colAcademico;
-    @FXML
-    private TableColumn<Horario, String> colCupo;
-    @FXML
-    private TableColumn<Horario, String> colJue;
-    @FXML
-    private TableColumn<Horario, String> colLun;
-    @FXML
-    private TableColumn<Horario, String> colMar;
-    @FXML
-    private TableColumn<Horario, String> colMie;
-    @FXML
-    private TableColumn<Horario, String> colNrc;
-    @FXML
-    private TableColumn<Horario, String> colSab;
-    @FXML
-    private TableColumn<Horario, String> colSalon;
-    @FXML
-    private TableColumn<Horario, String> colVie;
-    @FXML
-    private TableView<Horario> tlbHorario;
+    @FXML private Button btnGuardar;
+    @FXML private ComboBox<Materia> cbMateria;
+    @FXML private TextField lblAcademico;
+    @FXML private TextField lblCupo;
+    @FXML private TextField lblsalonjueves;
+    @FXML private TextField lblsalonlunes;
+    @FXML private TextField lblsalonmartes;
+    @FXML private TextField lblsalonmiercoles;
+    @FXML private TextField lblsalonsabado;
+    @FXML private TextField lblsalonviernes;
+    @FXML private TextField lblSalon;
+    @FXML private Button btnGuardarEdicion;
+    @FXML private ComboBox<String> cbjuevesfin;
+    @FXML private ComboBox<String> cbjuevesinicio;
+    @FXML private ComboBox<String> cblunesfin;
+    @FXML private ComboBox<String> cblunesinicio;
+    @FXML private ComboBox<String> cbmartesfin;
+    @FXML private ComboBox<String> cbmartesinicio;
+    @FXML private ComboBox<String> cbmiercolesfin;
+    @FXML private ComboBox<String> cbmiercolesinicio;
+    @FXML private ComboBox<String> cbsabadofin;
+    @FXML private ComboBox<String> cbsabadoinicio;
+    @FXML private ComboBox<String> cbviernesfin;
+    @FXML private ComboBox<String> cbviernesinicio;
+    @FXML private TableColumn<Horario, String> colAcademico;
+    @FXML private TableColumn<Horario, String> colCupo;
+    @FXML private TableColumn<Horario, String> colJue;
+    @FXML private TableColumn<Horario, String> colLun;
+    @FXML private TableColumn<Horario, String> colMar;
+    @FXML private TableColumn<Horario, String> colMie;
+    @FXML private TableColumn<Horario, String> colNrc;
+    @FXML private TableColumn<Horario, String> colSab;
+    @FXML private TableColumn<Horario, String> colVie;
+    @FXML private TableColumn<Horario, String> colSaJue;
+    @FXML private TableColumn<Horario, String> colSaLun;
+    @FXML private TableColumn<Horario, String> colSaMar;
+    @FXML private TableColumn<Horario, String> colSaMie;
+    @FXML private TableColumn<Horario, String> colSaVie;
+    @FXML private TableColumn<Horario, String> colSaSab;
+    @FXML private TableView<Horario> tlbHorario;
 
     /**
      * Permite navegar a la ventana Materias.
@@ -111,6 +93,10 @@ public class FXMLHorariosController implements Initializable {
     @FXML
     private void VentanaMaterias() {
         principal.VentanaMaterias();
+    }
+    @FXML
+    private void VentanaFormulario(){
+        principal.VentanaFormulario(true, null);
     }
 
     /**
@@ -226,17 +212,23 @@ public class FXMLHorariosController implements Initializable {
     public void LlenarTabla() throws SQLException {
         colNrc.setCellValueFactory(new PropertyValueFactory<>("nrc"));
         colAcademico.setCellValueFactory(new PropertyValueFactory<>("academico"));
-        colSalon.setCellValueFactory(new PropertyValueFactory<>("salon"));
         colCupo.setCellValueFactory(new PropertyValueFactory<>("cupo"));
         colLun.setCellValueFactory(new PropertyValueFactory<>("lunes"));
+        colSaLun.setCellValueFactory(new PropertyValueFactory<>("salonLunes"));
         colMar.setCellValueFactory(new PropertyValueFactory<>("martes"));
+        colSaMar.setCellValueFactory(new PropertyValueFactory<>("salonMartes"));
         colMie.setCellValueFactory(new PropertyValueFactory<>("miercoles"));
+        colSaMie.setCellValueFactory(new PropertyValueFactory<>("salonMiercoles"));
         colJue.setCellValueFactory(new PropertyValueFactory<>("jueves"));
+        colSaJue.setCellValueFactory(new PropertyValueFactory<>("salonJueves"));
         colVie.setCellValueFactory(new PropertyValueFactory<>("viernes"));
+        colSaVie.setCellValueFactory(new PropertyValueFactory<>("salonViernes"));
         colSab.setCellValueFactory(new PropertyValueFactory<>("sabado"));
+        colSaSab.setCellValueFactory(new PropertyValueFactory<>("salonSabado"));
         horarios = controller.getHorario();
         horariost = FXCollections.observableArrayList();
         for (Horario hr : horarios) {
+            
             horariost.add(hr);
         }
         tlbHorario.setItems(horariost);
@@ -255,7 +247,6 @@ public class FXMLHorariosController implements Initializable {
         cbMateria.setDisable(true);
         lblAcademico.setText("");
         lblCupo.setText("");
-        lblSalon.setText("");
         cbMateria.getSelectionModel().select(0);
         cblunesinicio.getSelectionModel().selectFirst();
         cbmartesinicio.getSelectionModel().selectFirst();
@@ -269,6 +260,18 @@ public class FXMLHorariosController implements Initializable {
         cbjuevesfin.getSelectionModel().selectFirst();
         cbviernesfin.getSelectionModel().selectFirst();
         cbsabadofin.getSelectionModel().selectFirst();
+        lblsalonlunes.setText("");
+        lblsalonmartes.setText("");
+        lblsalonmiercoles.setText("");
+        lblsalonjueves.setText("");
+        lblsalonviernes.setText("");
+        lblsalonsabado.setText("");
+         lblsalonlunes.setDisable(true);
+        lblsalonmartes.setDisable(true);
+        lblsalonmiercoles.setDisable(true);
+        lblsalonjueves.setDisable(true);
+        lblsalonviernes.setDisable(true);
+        lblsalonsabado.setDisable(true);
     }
 
     /**
@@ -278,14 +281,20 @@ public class FXMLHorariosController implements Initializable {
     public void ActivarFormulario() {
         lblAcademico.setDisable(false);
         lblCupo.setDisable(false);
-        lblSalon.setDisable(false);
         cbMateria.setDisable(false);
+        lblsalonlunes.setDisable(false);
+        lblsalonmartes.setDisable(false);
+        lblsalonmiercoles.setDisable(false);
+        lblsalonjueves.setDisable(false);
+        lblsalonviernes.setDisable(false);
+        lblsalonsabado.setDisable(false);
     }
 
     /**
      * Inicia la interfaz y activa el formulario.
      */
     public void AgregarHorario() {
+        //principal.VentanaFormulario(true, null);
         IniciarInterfaz();
         ActivarFormulario();
         btnGuardar.setVisible(true);
@@ -307,10 +316,6 @@ public class FXMLHorariosController implements Initializable {
             return false;
         }
 
-        if (lblSalon.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Agregar salon");
-            return false;
-        }
         if (lblCupo.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Agregar cupo");
             return false;
@@ -326,8 +331,8 @@ public class FXMLHorariosController implements Initializable {
      */
     public Horario HorarioSeleccionado() {
         if (tlbHorario != null) {
-            Horario alumno = tlbHorario.getSelectionModel().getSelectedItem();
-            return alumno;
+            Horario horario = tlbHorario.getSelectionModel().getSelectedItem();
+            return horario;
         } else {
             return null;
         }
@@ -346,7 +351,12 @@ public class FXMLHorariosController implements Initializable {
             Horario hor = new Horario();
             hor.setNrc(cbMateria.getSelectionModel().getSelectedItem().getNrc());
             hor.setAcademico(lblAcademico.getText());
-            hor.setSalon(lblSalon.getText());
+            hor.setSalonLunes(lblsalonlunes.getText());
+            hor.setSalonMartes(lblsalonmartes.getText());
+            hor.setSalonMiercoles(lblsalonmiercoles.getText());
+            hor.setSalonJueves(lblsalonjueves.getText());
+            hor.setSalonViernes(lblsalonviernes.getText());
+            hor.setSalonSabado(lblsalonsabado.getText());
             hor.setCupo(Integer.parseInt(lblCupo.getText()));
             if ("NULL".equals(cblunesinicio.getSelectionModel().getSelectedItem())
                     | "NULL".equals(cblunesfin.getSelectionModel().getSelectedItem())) {
@@ -477,15 +487,22 @@ public class FXMLHorariosController implements Initializable {
     @FXML
     private void EditarHorario() {
         Horario hor = HorarioSeleccionado();
+        //principal.VentanaFormulario(false, hor);
         if (hor != null) {
             IniciarInterfaz();
             ActivarFormulario();
             btnGuardarEdicion.setVisible(true);
             Materia ma = EncontrarMateria(hor);
             cbMateria.getSelectionModel().select(ma);
+            lblsalonlunes.setText(hor.getSalonLunes());
+            lblsalonmartes.setText(hor.getSalonMartes());
+            lblsalonmiercoles.setText(hor.getSalonMiercoles());
+            lblsalonjueves.setText(hor.getSalonJueves());
+            lblsalonviernes.setText(hor.getSalonViernes());
+            lblsalonsabado.setText(hor.getSalonSabado());
             lblAcademico.setText(hor.getAcademico());
-            lblSalon.setText(hor.getSalon());
             lblCupo.setText(Integer.toString(hor.getCupo()));
+            
             cblunesinicio.getSelectionModel().select(SepararHoras(hor.getLunes(), 0));
             cblunesfin.getSelectionModel().select(SepararHoras(hor.getLunes(), 1));
 
@@ -517,10 +534,16 @@ public class FXMLHorariosController implements Initializable {
     @FXML
     private void GuardarEdicion() throws SQLException {
         Horario hor = HorarioSeleccionado();
+        
         if (hor != null) {
             btnGuardarEdicion.setVisible(true);
             hor.setAcademico(lblAcademico.getText());
-            hor.setSalon(lblSalon.getText());
+            hor.setSalonLunes(lblsalonlunes.getText());
+            hor.setSalonMartes(lblsalonmartes.getText());
+            hor.setSalonMiercoles(lblsalonmiercoles.getText());
+            hor.setSalonJueves(lblsalonjueves.getText());
+            hor.setSalonViernes(lblsalonviernes.getText());
+            hor.setSalonSabado(lblsalonsabado.getText());
             hor.setCupo(Integer.parseInt(lblCupo.getText()));
             if ("NULL".equals(cblunesinicio.getSelectionModel().getSelectedItem())
                     | "NULL".equals(cblunesfin.getSelectionModel().getSelectedItem())) {

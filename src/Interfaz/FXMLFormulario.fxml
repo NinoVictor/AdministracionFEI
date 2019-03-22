@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Interfaz.FXMLFormularioController">
+  <children>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutX="50.0" layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="400.0" x="0.0" />
+    <Label layoutX="150.0" layoutY="34.0" prefHeight="40.0" prefWidth="210.0" text="Formulario" textAlignment="CENTER">
+      <font>
+        <Font name="Arial Bold" size="40.0" />
+      </font>
+    </Label>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="425.0" layoutX="32.0" layoutY="130.0" stroke="BLACK" strokeType="INSIDE" width="443.0" />
+    <Label layoutX="60.0" layoutY="140.0" prefWidth="80.0" text="Matería:">
+      <font>
+        <Font name="System Bold" size="14.0" fx:id="x1" />
+      </font>
+    </Label>
+    <Label font="$x1" layoutX="60.0" layoutY="170.0" prefWidth="80.0" text="Académico:" />
+    <Label font="$x1" layoutX="60.0" layoutY="206.0" prefWidth="80.0" text="Cupo:" />
+    <ComboBox fx:id="cbMateria" layoutX="154.0" layoutY="140.0" prefHeight="21.0" prefWidth="200.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <TextField fx:id="lblAcademico" layoutX="150.0" layoutY="170.0" prefWidth="200.0" />
+    <TextField fx:id="lblCupo" layoutX="150.0" layoutY="206.0" prefWidth="71.0" />
+    <Label font="$x1" layoutX="50.0" layoutY="278.0" prefWidth="80.0" text="Lunes:" />
+    <Label font="$x1" layoutX="50.0" layoutY="308.0" prefWidth="80.0" text="Martes:" />
+    <Label font="$x1" layoutX="50.0" layoutY="338.0" prefWidth="80.0" text="Miércoles:" />
+    <Label font="$x1" layoutX="50.0" layoutY="368.0" prefWidth="80.0" text="Jueves:" />
+    <Label contentDisplay="CENTER" layoutX="155.0" layoutY="259.0" prefWidth="58.0" text="Hora Inicio" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" wrapText="false">
+      <font>
+        <Font name="System Italic" size="12.0" fx:id="x2" />
+      </font>
+    </Label>
+    <Label contentDisplay="CENTER" font="$x2" layoutX="270.0" layoutY="259.0" prefWidth="58.0" text="Hora Fin" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
+    <ComboBox id="cblunesInicio" fx:id="cblunesinicio" layoutX="150.0" layoutY="278.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <ComboBox id="cblunesFin" fx:id="cblunesfin" layoutX="260.0" layoutY="278.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <ComboBox id="cbmartesInicio" fx:id="cbmartesinicio" layoutX="150.0" layoutY="308.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <ComboBox id="cbmartesFin" fx:id="cbmartesfin" layoutX="260.0" layoutY="308.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <ComboBox fx:id="cbmiercolesinicio" layoutX="150.0" layoutY="338.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <ComboBox fx:id="cbmiercolesfin" layoutX="260.0" layoutY="338.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <ComboBox fx:id="cbjuevesinicio" layoutX="150.0" layoutY="368.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <ComboBox fx:id="cbjuevesfin" layoutX="260.0" layoutY="368.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <TextField id="lblAcademico" fx:id="lblsalonlunes" layoutX="370.0" layoutY="275.0" prefWidth="71.0001220703125" />
+    <TextField id="lblAcademico" fx:id="lblsalonmartes" layoutX="370.0" layoutY="308.0" prefWidth="71.0" />
+    <TextField id="lblAcademico" fx:id="lblsalonmiercoles" layoutX="370.0" layoutY="338.0" prefWidth="71.0" />
+    <TextField id="lblAcademico" fx:id="lblsalonjueves" layoutX="370.0" layoutY="367.0" prefWidth="71.0" />
+    <Label contentDisplay="CENTER" font="$x2" layoutX="390.0" layoutY="256.0" prefWidth="44.0" text="Salón" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
+    <Label font="$x1" layoutX="50.0" layoutY="397.0" prefWidth="80.0" text="Viernes" />
+    <ComboBox id="cbjuevesinicio" fx:id="cbviernesinicio" layoutX="150.0" layoutY="397.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <ComboBox id="cbjuevesfin" fx:id="cbviernesfin" layoutX="260.0" layoutY="397.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <TextField id="lblAcademico" fx:id="lblsalonviernes" layoutX="370.0" layoutY="396.0" prefWidth="71.0" />
+    <Label font="$x1" layoutX="50.0" layoutY="426.0" prefWidth="80.0" text="Sábado" />
+    <ComboBox id="cbjuevesinicio" fx:id="cbsabadoinicio" layoutX="150.0" layoutY="426.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <ComboBox id="cbjuevesfin" fx:id="cbsabadofin" layoutX="260.0" layoutY="426.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <TextField id="lblAcademico" fx:id="lblsalonsabado" layoutX="370.0" layoutY="425.0" prefWidth="71.0" />
+    <Button id="lblGuardarEdicion" fx:id="btnGuardar" layoutX="246.0" layoutY="508.0" mnemonicParsing="false" onAction="#GuardarHorario" prefWidth="80.0" text="Guardar">
+      <font>
+        <Font name="System Bold Italic" size="14.0" fx:id="x3" />
+      </font>
+    </Button>
+    <Button id="lblGuardarEdicion" font="$x3" layoutX="336.0" layoutY="507.0" mnemonicParsing="false" onAction="#VentanaHorarios" prefWidth="90.0" text="Regresar" />
+  </children>
+</AnchorPane>

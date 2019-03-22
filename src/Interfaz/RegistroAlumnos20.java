@@ -12,6 +12,7 @@
  */
 package Interfaz;
 
+import clases.Horario;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,6 +21,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 public class RegistroAlumnos20 extends Application {
 
@@ -45,6 +47,26 @@ public class RegistroAlumnos20 extends Application {
             FXMLDocumentController controller = loader.getController();
             controller.setProgramaPrincipal(this);
             stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(RegistroAlumnos20.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public void VentanaFormulario(boolean nuevo, Horario horario){
+        try {
+            
+            System.out.println("Entra a la función");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLFormulario.fxml"));
+            AnchorPane ventanaDos = (AnchorPane) loader.load();
+            Stage ventana = new Stage();
+            ventana.initOwner(stage);
+            Scene scene = new Scene(ventanaDos);
+            ventana.setScene(scene);
+            FXMLFormularioController controller = loader.getController();
+            controller.setProgramaPrincipal(this);
+            controller.setNuevo(nuevo);
+            controller.setHorario(horario);
+            controller.setStagePrincipal(ventana);
+            ventana.show();
         } catch (IOException ex) {
             Logger.getLogger(RegistroAlumnos20.class.getName()).log(Level.SEVERE, null, ex);
         }

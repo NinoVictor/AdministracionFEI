@@ -13,7 +13,6 @@ package clases;
 public class Horario {
     private int idHorario;
     private String academico;
-    private String salon;
     private int cupo;
     private int nrc;
     private String lunes;
@@ -22,6 +21,12 @@ public class Horario {
     private String jueves;
     private String viernes;
     private String sabado;
+    private String salonLunes;
+    private String salonMartes;
+    private String salonMiercoles;
+    private String salonJueves;
+    private String salonViernes;
+    private String salonSabado;
     
     public Horario(){
         
@@ -41,10 +46,17 @@ public class Horario {
      * @param viernes
      * @param sabado 
      */
-    public Horario(int idHorario, String academico, String salon, int cupo, int nrc, String lunes, String martes, String miercoles, String jueves, String viernes, String sabado) {
+    
+
+    
+
+    public Horario(int idHorario, String academico, int cupo, int nrc, 
+            String lunes, String martes, String miercoles, String jueves, 
+            String viernes, String sabado, String salonLunes, 
+            String salonMartes, String salonMiercoles, String salonJueves, 
+            String salonViernes, String salonSabado) {
         this.idHorario = idHorario;
         this.academico = academico;
-        this.salon = salon;
         this.cupo = cupo;
         this.nrc = nrc;
         this.lunes = lunes;
@@ -53,9 +65,13 @@ public class Horario {
         this.jueves = jueves;
         this.viernes = viernes;
         this.sabado = sabado;
+        this.salonLunes = salonLunes;
+        this.salonMartes = salonMartes;
+        this.salonMiercoles = salonMiercoles;
+        this.salonJueves = salonJueves;
+        this.salonViernes = salonViernes;
+        this.salonSabado = salonSabado;
     }
-
-    
 
     public int getIdHorario() {
         return idHorario;
@@ -71,14 +87,6 @@ public class Horario {
 
     public void setAcademico(String academico) {
         this.academico = academico;
-    }
-
-    public String getSalon() {
-        return salon;
-    }
-
-    public void setSalon(String salon) {
-        this.salon = salon;
     }
 
     public int getCupo() {
@@ -143,6 +151,54 @@ public class Horario {
 
     public void setSabado(String sabado) {
         this.sabado = sabado;
+    }
+
+    public String getSalonLunes() {
+        return salonLunes;
+    }
+
+    public void setSalonLunes(String salonLunes) {
+        this.salonLunes = salonLunes;
+    }
+
+    public String getSalonMartes() {
+        return salonMartes;
+    }
+
+    public void setSalonMartes(String salonMartes) {
+        this.salonMartes = salonMartes;
+    }
+
+    public String getSalonMiercoles() {
+        return salonMiercoles;
+    }
+
+    public void setSalonMiercoles(String salonMiercoles) {
+        this.salonMiercoles = salonMiercoles;
+    }
+
+    public String getSalonJueves() {
+        return salonJueves;
+    }
+
+    public void setSalonJueves(String salonJueves) {
+        this.salonJueves = salonJueves;
+    }
+
+    public String getSalonViernes() {
+        return salonViernes;
+    }
+
+    public void setSalonViernes(String salonViernes) {
+        this.salonViernes = salonViernes;
+    }
+
+    public String getSalonSabado() {
+        return salonSabado;
+    }
+
+    public void setSalonSabado(String salonSabado) {
+        this.salonSabado = salonSabado;
     }
 
     

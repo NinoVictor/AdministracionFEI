@@ -48,7 +48,6 @@ public class HorarioDAO implements IHorarioDAO {
                 hr.setIdHorario(rs.getInt("idhorario"));
                 hr.setNrc(rs.getInt("nrc"));
                 hr.setAcademico(rs.getString("academico"));
-                hr.setSalon(rs.getString("salon"));
                 hr.setCupo(rs.getInt("cupo"));
                 hr.setLunes(rs.getString("lunes"));
                 hr.setMartes(rs.getString("martes"));
@@ -56,6 +55,12 @@ public class HorarioDAO implements IHorarioDAO {
                 hr.setJueves(rs.getString("jueves"));
                 hr.setViernes(rs.getString("viernes"));
                 hr.setSabado(rs.getString("sabado"));
+                hr.setSalonLunes(rs.getString("salonlunes"));
+                hr.setSalonMartes(rs.getString("salonmartes"));
+                hr.setSalonMiercoles(rs.getString("salonmiercoles"));
+                hr.setSalonJueves(rs.getString("salonjueves"));
+                hr.setSalonViernes(rs.getString("salonviernes"));
+                hr.setSalonSabado(rs.getString("salonsabado"));
                 lista.add(hr);
             }
         } catch (SQLException e) {
@@ -86,14 +91,18 @@ public class HorarioDAO implements IHorarioDAO {
         String sentencia;
         Connection conn = null;
         ResultSet rs = null;
-        sentencia = "INSERT INTO horarios(academico,salon,cupo,nrc,lunes,"
-                + "martes,miercoles,jueves,viernes,sabado)"
-                + "VALUES ('" + horario.getAcademico() + "','" 
-                + horario.getSalon() + "','" + horario.getCupo() + "','" 
+        sentencia = "INSERT INTO horarios(academico,salonsabado,cupo,nrc,lunes,"
+                + "martes,miercoles,jueves,viernes,sabado,salonlunes,"
+                + "salonmartes,salonmiercoles,salonjueves,salonviernes)"
+                + " VALUES ('" + horario.getAcademico() + "','" + horario.getSalonSabado()
+                + "','" + horario.getCupo() + "','" 
                 + horario.getNrc() + "','" + horario.getLunes() + "','"
                 + horario.getMartes() + "','" + horario.getMiercoles() 
                 + "','" + horario.getJueves() + "','" + horario.getViernes() 
-                + "','" + horario.getSabado() + "');";
+                + "','" + horario.getSabado() + "','" + horario.getSalonLunes()
+                + "','" + horario.getSalonMartes() + "','" + horario.getSalonMiercoles()
+                + "','" + horario.getSalonJueves() + "','" + horario.getSalonViernes()
+                + "');";
         System.out.println(sentencia);
         try {
             conn = new Conectar().getConnection();
@@ -156,7 +165,7 @@ public class HorarioDAO implements IHorarioDAO {
         ResultSet rs = null;
 
         sentencia = "UPDATE horarios SET academico = '" + horario.getAcademico()
-                + "', salon = '" + horario.getSalon()
+                
                 + "', cupo = '" + horario.getCupo()
                 + "', lunes = '" + horario.getLunes()
                 + "', martes = '" + horario.getMartes()
@@ -165,6 +174,12 @@ public class HorarioDAO implements IHorarioDAO {
                 + "', viernes = '" + horario.getViernes()
                 + "', sabado = '" + horario.getSabado()
                 + "', nrc = '" + horario.getNrc()
+                + "', salonlunes = '" + horario.getSalonLunes()
+                + "', salonmartes = '" + horario.getSalonMartes()
+                + "', salonmiercoles = '" + horario.getSalonMiercoles()
+                + "', salonjueves = '" + horario.getSalonJueves()
+                + "', salonviernes = '" + horario.getSalonViernes()
+                + "', salonsabado = '" + horario.getSalonSabado()
                 + "' WHERE idhorario = '" + horario.getIdHorario()
                 + "';";
         System.out.println(sentencia);
