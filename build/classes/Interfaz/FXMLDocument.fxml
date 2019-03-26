@@ -18,7 +18,7 @@
         <Image url="@../img/UV_Logo.png" />
       </image>
     </ImageView>
-    <Label layoutX="300.0" layoutY="62.0" prefHeight="40.0" prefWidth="416.0" text="Registro de Alumnos" textAlignment="CENTER">
+    <Label layoutX="410.0" layoutY="62.0" prefHeight="46.0" prefWidth="200.0" text="Alumnos" textAlignment="CENTER">
       <font>
         <Font name="Arial Bold" size="40.0" />
       </font>
@@ -71,7 +71,8 @@
         </Menu>
         <Menu mnemonicParsing="false" text="Horarios">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#VentanaHorarios" text="Registrar Horarios" />
+            <MenuItem mnemonicParsing="false" onAction="#VentanaHorarios" text="Horario Materias" />
+            <MenuItem mnemonicParsing="false" onAction="#VentanaHorarioAlumno" text="Horario Alumnos" />
           </items>
         </Menu>
       </menus>

@@ -123,6 +123,11 @@ public class FXMLHorariosController implements Initializable {
     private void VentanaHorarios() {
         principal.VentanaHorarios();
     }
+    
+    @FXML
+    private void VentanaHorarioAlumno(){
+        principal.VentanaHorarioAlumno();
+    }
 
     /**
      * Método que muestra y mensaje de despedida y cierra el programa.

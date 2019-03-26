@@ -295,6 +295,10 @@ public class FXMLDocumentController implements Initializable{
     private void VentanaHorarios(){
         principal.VentanaHorarios();
     }
+    @FXML
+    private void VentanaHorarioAlumno(){
+        principal.VentanaHorarioAlumno();
+    }
     
 
     /**

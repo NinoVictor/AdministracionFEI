@@ -85,7 +85,7 @@ public class FXMLFormularioController implements Initializable {
     @FXML
     private void VentanaHorarios(){
         this.stagePrincipal.close();
-        principal.VentanaHorarios();
+        //principal.VentanaHorarios();
     }
     
     public void cargarMaterias() {

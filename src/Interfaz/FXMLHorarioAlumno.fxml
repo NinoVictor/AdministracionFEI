@@ -5,7 +5,90 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Interfaz.FXMLHorarioAlumnoController">
-    
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Interfaz.FXMLHorarioAlumnoController">
+  <children>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutX="192.0" layoutY="33.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
+    <Label layoutX="304.0" layoutY="35.0" prefHeight="46.0" prefWidth="384.0" text="Horario de Alumno" textAlignment="CENTER">
+      <font>
+        <Font name="Arial Bold" size="40.0" />
+      </font>
+    </Label>
+    <TableView id="tlbHorario" layoutX="14.0" layoutY="181.0" prefHeight="150.0" prefWidth="899.0">
+      <columns>
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="47.0" text="NRC" />
+        <TableColumn prefWidth="154.0" text="Académico" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="38.0" text="Cupo" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="70.0" text="LUN" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="63.0" text="Salon Lun" />
+        <TableColumn prefWidth="70.0" text="MAR" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="63.0" text="Salon Mar" />
+        <TableColumn prefWidth="70.0" text="MIE" />
+        <TableColumn prefWidth="63.0" text="Salon Mie" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="70.0" text="JUE" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="63.0" text="Salon Jue" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="70.0" text="VIE" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="63.0" text="Salon Vie" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="54.0" text="SAB" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="58.0" text="Salon Sab" />
+      </columns>
+    </TableView>
+    <Button layoutX="932.0" layoutY="207.0" mnemonicParsing="false" prefWidth="40.0" text="+">
+      <font>
+        <Font name="System Bold Italic" size="14.0" fx:id="x1" />
+      </font>
+    </Button>
+    <TableView id="tlbHorario" layoutX="14.0" layoutY="376.0" prefHeight="150.0" prefWidth="899.0">
+      <columns>
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="47.0" text="NRC" />
+        <TableColumn prefWidth="154.0" text="Académico" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="38.0" text="Cupo" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="70.0" text="LUN" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="63.0" text="Salon Lun" />
+        <TableColumn prefWidth="70.0" text="MAR" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="63.0" text="Salon Mar" />
+        <TableColumn prefWidth="70.0" text="MIE" />
+        <TableColumn prefWidth="63.0" text="Salon Mie" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="70.0" text="JUE" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="63.0" text="Salon Jue" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="70.0" text="VIE" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="63.0" text="Salon Vie" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="54.0" text="SAB" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="58.0" text="Salon Sab" />
+      </columns>
+    </TableView>
+    <Button font="$x1" layoutX="932.0" layoutY="402.0" mnemonicParsing="false" prefWidth="40.0" text="-" />
+    <Label layoutX="14.0" layoutY="107.0" text="Matrícula Alumno:" />
+    <TextField layoutX="116.0" layoutY="104.0" prefWidth="116.0" />
+    <Button layoutX="240.0" layoutY="104.0" mnemonicParsing="false" prefWidth="77.0" text="Buscar" />
+    <Label layoutX="385.0" layoutY="130.0" text="Nombre Alumno:" />
+    <TextField layoutX="492.0" layoutY="101.0" prefWidth="77.0" />
+    <Label layoutX="386.0" layoutY="104.0" text="Matrícula Alumno:" />
+    <TextField layoutX="492.0" layoutY="126.0" prefWidth="176.0" />
+    <Button layoutX="703.0" layoutY="115.0" mnemonicParsing="false" text="Agregar Horario" />
+    <Label layoutX="29.0" layoutY="153.0" text="Materias Disponibles:" />
+    <Label layoutX="21.0" layoutY="341.0" text="Materias Seleccionadas:" />
+    <MenuBar blendMode="SRC_OVER" layoutX="0.0" layoutY="0.0" mouseTransparent="false" pickOnBounds="false" prefHeight="25.0" prefWidth="1000.0" useSystemMenuBar="false" visible="true">
+      <menus>
+        <Menu mnemonicParsing="false" onAction="#VentanaAlumnos" text="Alumnos">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#VentanaAlumnos" text="Registrar Alumnos" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Materias">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#VentanaMaterias" text="Registrar Materias" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Horarios">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#VentanaHorarios" text="Horario Materias" />
+            <MenuItem mnemonicParsing="false" onAction="#VentanaHorarioAlumno" text="Horario de Alumnos" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+  </children>
 </AnchorPane>

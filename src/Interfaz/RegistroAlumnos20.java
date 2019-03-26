@@ -102,6 +102,19 @@ public class RegistroAlumnos20 extends Application {
             Logger.getLogger(RegistroAlumnos20.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void VentanaHorarioAlumno(){
+        try {
+            FXMLLoader loader= new FXMLLoader(RegistroAlumnos20.class.getResource("FXMLHorarioAlumno.fxml"));
+            rootPane = (AnchorPane) loader.load();
+            Scene scene = new Scene(rootPane);
+            stage.setScene(scene);
+            FXMLHorarioAlumnoController controller = loader.getController();
+            controller.setProgramaPrincipal(this);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(RegistroAlumnos20.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     /** 
      * @param args the command line arguments

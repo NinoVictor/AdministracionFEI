@@ -303,6 +303,10 @@ public class FXMLMateriasController implements Initializable {
     private void VentanaHorarios(){
         principal.VentanaHorarios();
     }
+    @FXML
+    private void VentanaHorarioAlumno(){
+        principal.VentanaHorarioAlumno();
+    }
     
     
 

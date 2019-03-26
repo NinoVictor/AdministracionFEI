@@ -26,13 +26,14 @@
         </Menu>
         <Menu mnemonicParsing="false" text="Horario">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#VentanaHorarios" text="Registrar Horario" />
+            <MenuItem mnemonicParsing="false" onAction="#VentanaHorarios" text="Horario Materias" />
+            <MenuItem mnemonicParsing="false" onAction="#VentanaHorarioAlumno" text="Horario Alumno" />
           </items>
         </Menu>
       </menus>
     </MenuBar>
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutX="200.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
-    <Label layoutX="300.0" layoutY="62.0" prefHeight="40.0" prefWidth="416.0" text="Registro de Horarios" textAlignment="CENTER">
+    <Label layoutX="295.0" layoutY="62.0" prefHeight="46.0" prefWidth="410.0" text="Horarios de Materias" textAlignment="CENTER">
       <font>
         <Font name="Arial Bold" size="40.0" />
       </font>
@@ -52,18 +53,18 @@
         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="47.0" text="NRC" fx:id="colNrc" />
         <TableColumn prefWidth="154.0" text="Académico" fx:id="colAcademico" />
         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="38.0" text="Cupo" fx:id="colCupo" />
-        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="54.0" text="LUN" fx:id="colLun" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="70.0" text="LUN" fx:id="colLun" />
         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="63.0" text="Salon Lun" fx:id="colSaLun" />
-        <TableColumn prefWidth="54.0" text="MAR" fx:id="colMar" />
+        <TableColumn prefWidth="70.0" text="MAR" fx:id="colMar" />
         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="63.0" text="Salon Mar" fx:id="colSaMar" />
-        <TableColumn prefWidth="54.0" text="MIE" fx:id="colMie" />
+        <TableColumn prefWidth="70.0" text="MIE" fx:id="colMie" />
         <TableColumn prefWidth="63.0" text="Salon Mie" fx:id="colSaMie" />
-        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="54.0" text="JUE" fx:id="colJue" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="70.0" text="JUE" fx:id="colJue" />
         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="63.0" text="Salon Jue" fx:id="colSaJue" />
-        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="54.0" text="VIE" fx:id="colVie" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="70.0" text="VIE" fx:id="colVie" />
         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="63.0" text="Salon Vie" fx:id="colSaVie" />
         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="54.0" text="SAB" fx:id="colSab" />
-        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="63.0" text="Salon Sab" fx:id="colSaSab" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="58.0" text="Salon Sab" fx:id="colSaSab" />
       </columns>
     </TableView>
     <Rectangle id="formulario" arcHeight="5.0" arcWidth="5.0" fill="#dfdfdf" height="215.0" layoutX="37.0" layoutY="321.0" stroke="BLACK" strokeType="INSIDE" width="769.0" />
