@@ -13,8 +13,10 @@ package Interfaz;
 
 import BaseDeDatos.Alumnos.AlumnosDAO;
 import BaseDeDatos.Horarios.HorarioDAO;
+import BaseDeDatos.Materias.MateriasDAO;
 import clases.Alumno;
 import clases.Horario;
+import clases.Materia;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -111,9 +113,13 @@ public class FXMLHorarioAlumnoController implements Initializable {
     private void VentanaHorarioAlumno(){
         principal.VentanaHorarioAlumno();
     }
+    @FXML
+    private void SalirPrograma() {
+        JOptionPane.showMessageDialog(null, "Hasta la vista");
+        System.exit(0);
+    }
     
     public Alumno EncontrarAlumno(String matricula) {
-        
             Alumno alumno = null;
             System.out.println(matricula);
         try {
@@ -130,15 +136,37 @@ public class FXMLHorarioAlumnoController implements Initializable {
             return alumno;
         
     }
+    public Materia BuscarMateria(int nrc){
+        MateriasDAO maDAO = new MateriasDAO();
+        Materia materia = null;
+        List<Materia> listaMaterias = new ArrayList();
+        try {
+            listaMaterias = maDAO.getMateria();
+        } catch (SQLException ex) {
+            Logger.getLogger(FXMLHorarioAlumnoController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        for(Materia ma : listaMaterias){
+            if(ma.getNrc() == nrc){
+                materia = ma;
+            }
+        }
+        return materia;
+    }
     
     @FXML
     private void BuscarAlumno(){
         Alumno al = null;
         al = EncontrarAlumno(lblBuscarMatricula.getText());
-       lblNombreAlumno.setText(al.toString());
-       lblMatricula.setText(al.getMatricula());
-       lblBuscarMatricula.setText("");
+        if(al != null){
+            lblNombreAlumno.setText(al.toString());
+            lblMatricula.setText(al.getMatricula());
+            lblBuscarMatricula.setText("");
+        }else{
+            JOptionPane.showMessageDialog(null, "Alumno no encontrado");
+        }
+      
     }
+        
     
     public void IniciarInterfaz(){
         lblNombreAlumno.setEditable(false);
@@ -237,8 +265,10 @@ public class FXMLHorarioAlumnoController implements Initializable {
     private void AgregarMateria() {
         Horario hor = HorarioSeleccionado(1);
         if (hor != null) {
-            horariostAlum.add(hor);
-            LlenarTablaHorarioAlumno();
+            if(validarHorarioAlumno(hor)){
+                horariostAlum.add(hor);
+                LlenarTablaHorarioAlumno();
+            }            
         } else {
             JOptionPane.showMessageDialog(null,
                     "Seleccionar una materia de la tabla");
@@ -255,6 +285,41 @@ public class FXMLHorarioAlumnoController implements Initializable {
             JOptionPane.showMessageDialog(null,
                     "Seleccionar una materia de la tabla para quitarla");
         }
+    }
+    
+    public boolean materiaRepetida(Horario hor){
+        for(Horario hr: horariostAlum){
+            if(hor.equals(hr)){
+                return true;
+            }
+        }
+        return false;
+    }
+    public int numeroCreditosHorarioAlum(Horario hr){
+        int totalCreditos = 0;
+        Materia ma;
+        for(Horario hor : horariostAlum){
+            ma = BuscarMateria(hor.getNrc());
+            totalCreditos += ma.getCreditos();
+        }
+        ma = BuscarMateria(hr.getNrc());
+        return totalCreditos + ma.getCreditos();
+    }
+    
+    public boolean validarHorarioAlumno(Horario hor){
+        if(!horariostAlum.isEmpty()){
+            if(materiaRepetida(hor)){
+                JOptionPane.showMessageDialog(null, 
+                        "La materia ya ha sido seleccionada");
+                return false;
+            }
+            if(numeroCreditosHorarioAlum(hor) > 35){
+                JOptionPane.showMessageDialog(null, 
+                        "Solo puede tener 35 créditos en esta inscripcion");
+                return false;
+            }
+        }
+        return true;
     }
     /**
      * Initializes the controller class.

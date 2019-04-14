@@ -71,7 +71,7 @@
         </Menu>
       </menus>
     </MenuBar>
-    <Button layoutX="29.0" layoutY="535.0" mnemonicParsing="false" prefWidth="77.0" text="Salir" />
+    <Button layoutX="29.0" layoutY="535.0" mnemonicParsing="false" onAction="#SalirPrograma" prefWidth="77.0" text="Salir" />
     <TableView id="tlbHorario" fx:id="tblHorarioAlumno" layoutX="16.0" layoutY="371.0" prefHeight="150.0" prefWidth="899.0">
       <columns>
         <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="47.0" text="NRC" fx:id="colNrcAlum" />
